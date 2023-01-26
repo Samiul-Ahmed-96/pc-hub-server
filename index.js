@@ -45,6 +45,11 @@ const run = async () => {
       const result = await productCollection.deleteOne({_id : ObjectId(id)})
       res.send(result);
     })
+    app.get("/product/:id" , async (req , res) =>{
+      const id = req.params.id;
+      const result = await productCollection.findOne({_id : ObjectId(id)})
+      res.send(result);
+    })
 
   } finally {
   }
